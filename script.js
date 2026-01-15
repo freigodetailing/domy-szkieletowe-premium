@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll('section:not(.hero), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item');
+    const animatedElements = document.querySelectorAll('section:not(.hero):not(.portfolio-preview), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item');
 
     animatedElements.forEach(el => {
         // Skip staggered elements on mobile so they are handled by the specific mobile observer
@@ -36,33 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Mobile Scroll Animation for Benefit Cards
+
+    // Mobile Simple Border Highlight (Performance Optimized)
     if (window.innerWidth <= 768) {
-        const benefitCards = Array.from(document.querySelectorAll('.benefit-card, .advantage-item'));
-        let lastAnimationTime = 0;
+        const benefitCards = document.querySelectorAll('.benefit-card');
 
         const mobileObserver = new IntersectionObserver((entries) => {
-            // Filter intersecting entries and sort them by DOM order
-            const visibleEntries = entries
-                .filter(entry => entry.isIntersecting)
-                .sort((a, b) => benefitCards.indexOf(a.target) - benefitCards.indexOf(b.target));
-
-            visibleEntries.forEach(entry => {
-                const now = Date.now();
-                // Ensure at least 1000ms gap from the last scheduled animation
-                const delay = Math.max(0, (lastAnimationTime + 1000) - now);
-                const targetTime = now + delay;
-
-                lastAnimationTime = targetTime;
-
-                setTimeout(() => {
-                    entry.target.classList.add('active-card');
-                }, delay);
-
-                mobileObserver.unobserve(entry.target); // Trigger only once
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mobile-highlight');
+                    mobileObserver.unobserve(entry.target); // Trigger only once
+                }
             });
         }, {
-            threshold: 0.5 // Trigger when 50% visible
+            threshold: 0.5 // Trigger when 50% visible (middle of the screen roughly)
         });
 
         benefitCards.forEach(card => {
