@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Animation (Fog/Mist effect)
     const observerOptions = {
         threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: "0px"
+        rootMargin: "50px" // Pre-load slightly before element comes into view
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -60,5 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Parallax Effect for .section-shade-3
 
 
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            // Close other open questions
+            const currentlyActive = document.querySelector('.faq-question.active');
+            if (currentlyActive && currentlyActive !== question) {
+                currentlyActive.classList.remove('active');
+                currentlyActive.nextElementSibling.style.maxHeight = null;
+            }
+
+            // Toggle current
+            question.classList.toggle('active');
+            const answer = question.nextElementSibling;
+
+            if (question.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = null;
+            }
+        });
+    });
 });
 

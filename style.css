@@ -151,6 +151,15 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+@media (max-width: 768px) {
+    header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Solid fallback */
+    }
+}
+
 .nav-container {
     display: flex;
     justify-content: center;
@@ -346,6 +355,12 @@ header {
     .benefit-card.mobile-highlight {
         border-color: #FFC125;
         transition: border-color 0.5s ease;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background-color: rgba(30, 30, 30, 0.85);
+        /* Solid fallback */
+        box-shadow: none;
+        /* remove complex shadow */
     }
 }
 
@@ -514,7 +529,7 @@ header {
     right: 0;
     width: 200vw;
     /* Extend infinitely to left */
-    background-color: #1f1f1f;
+    background-color: #252525;
     border-radius: 8px;
     /* Round visible corners */
     z-index: -1;
@@ -679,6 +694,14 @@ footer::after {
     /* Remove previous border */
 }
 
+@media (max-width: 768px) {
+    .copyright {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
+    }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
 
@@ -734,7 +757,8 @@ footer::after {
         padding-top: 160px;
         padding-bottom: 80px;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 50%), linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/pełny-widok-domu.png') no-repeat 60% center/cover;
-        background-attachment: fixed, fixed, fixed;
+        background-attachment: scroll;
+        /* Performance fix */
     }
 
     .mobile-toggle {
@@ -795,18 +819,25 @@ footer::after {
     .footer-grid {
         grid-template-columns: 1fr;
         padding: 20px;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
     }
 }
 
 /* Section Shades - Different black tones for each section */
 .section-shade-1 {
-    background-color: #1a1a1a !important;
+    background-color: #202020 !important;
     position: relative;
     overflow: hidden;
 }
 
 .section-shade-2 {
-    background-color: #141414 !important;
+    background-color: #151515 !important;
+}
+
+.section-shade-5 {
+    background-color: #191919 !important;
 }
 
 .section-shade-3 {
@@ -821,7 +852,7 @@ footer::after {
 }
 
 .section-shade-4 {
-    background-color: #181818 !important;
+    background-color: #1d1d1d !important;
 }
 
 /* Scroll Animation Classes */
@@ -829,6 +860,24 @@ footer::after {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+    /* Hardware acceleration hint */
+}
+
+@media (max-width: 768px) {
+    .fade-on-scroll {
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        transform: translateY(20px);
+        /* Smaller movement on mobile */
+    }
+
+    .section-shade-3 {
+        background-attachment: scroll !important;
+    }
+
+    .portfolio-preview {
+        background-attachment: scroll !important;
+    }
 }
 
 .fade-on-scroll.visible {
@@ -846,15 +895,55 @@ footer::after {
     /* Images touch each other */
 }
 
-/* Specific vertical layout for advantages section */
-.section-shade-1 .text-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
+/* Specific 2-column layout for advantages section */
+.advantages-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: flex-start;
 }
 
-.section-shade-1 .text-content p {
-    text-align: justify;
+.advantages-column {
+    flex: 1;
+    text-align: left;
+}
+
+.advantages-link {
+    text-decoration: underline;
+    color: #fff;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.advantages-column h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    /* Adjusted for column width */
+}
+
+@media (max-width: 900px) {
+    .advantages-layout {
+        flex-direction: column;
+        gap: 80px;
+    }
+
+    .advantages-column h2 {
+        text-align: center;
+    }
+
+    .advantages-column p {
+        text-align-last: center !important;
+        /* Force center alignment on mobile for description */
+    }
+
+    .advantages-link {
+        display: block;
+        margin: 20px auto;
+        width: fit-content;
+        text-align: center;
+    }
+}
 }
 
 .advantage-item {
@@ -935,8 +1024,8 @@ footer::after {
     position: absolute;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.15;
-    /* 15% Opacity as requested */
+    opacity: 0.25;
+    /* Increased visibility */
     max-width: 800px;
     /* Much larger */
     filter: grayscale(100%);
@@ -987,8 +1076,8 @@ footer::after {
 /* Mobile Icon Adjustments */
 @media (max-width: 768px) {
     .decorative-icon {
-        opacity: 0.08;
-        /* Even more subtle on mobile */
+        opacity: 0.15;
+        /* Increased visibility for mobile */
         max-width: 400px !important;
         /* Still large on mobile relative to screen */
     }
@@ -996,9 +1085,9 @@ footer::after {
 
 
     .icon-saw {
-        right: -100px;
-        bottom: 350px;
-        /* Moved even higher (was 250px) */
+        right: -130px;
+        top: 120px;
+        bottom: auto;
     }
 
     .icon-tape-advantages {
@@ -1030,11 +1119,28 @@ footer::after {
     /* Fallback */
 }
 
+.portfolio-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .portfolio-description {
+        text-align: justify !important;
+        text-align-last: center;
+    }
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 50px;
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 0;
 }
 
 .portfolio-item {
@@ -1064,29 +1170,61 @@ footer::after {
 
 .portfolio-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    /* Full cover */
     padding: 30px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    background: rgba(0, 0, 0, 0.7);
+    /* Darker full background */
     opacity: 0;
     transition: opacity 0.4s ease;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertical */
+    align-items: center;
+    /* Center horizontal */
+    text-align: center;
 }
 
-.portfolio-overlay span {
+.portfolio-details h3 {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s;
+    /* Delay for staggered effect */
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.portfolio-details ul {
+    list-style: none;
+    padding: 0;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.2s;
+    /* More delay */
+}
+
+.portfolio-details li {
+    color: #ddd;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-details li strong {
+    color: #fff;
     font-weight: 600;
-    transform: translateY(10px);
-    transition: transform 0.4s ease;
-    border-left: 3px solid var(--accent-color);
-    padding-left: 15px;
 }
 
 @media (min-width: 769px) {
-    .portfolio-item:hover .portfolio-overlay span {
+
+    .portfolio-item:hover .portfolio-details h3,
+    .portfolio-item:hover .portfolio-details ul {
         transform: translateY(0);
     }
 }
@@ -1103,12 +1241,33 @@ footer::after {
 
     .portfolio-overlay {
         opacity: 1;
+        /* Always visible on mobile */
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: flex-end;
+        /* Bottom align on mobile if preferred, or maintain center */
+        align-items: flex-start;
+        text-align: left;
         padding: 20px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
     }
 
-    .portfolio-overlay span {
+    .portfolio-details h3 {
         transform: translateY(0);
-        font-size: 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+
+    .portfolio-details ul {
+        transform: translateY(0);
+        display: block;
+    }
+
+    .portfolio-details li {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        display: block;
+        margin-right: 0;
     }
 }

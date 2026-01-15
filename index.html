@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domy Szkieletowe - Premium</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cards.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -65,7 +66,7 @@
     </section>
 
     <!-- Why Skeleton Houses -->
-    <section class="benefits">
+    <section class="benefits section-shade-2">
 
 
         <div class="container">
@@ -109,133 +110,290 @@
         <!-- Decorative Icon: Tape (Advantages) -->
         <img src="images/Ikona-metrowki-bez-tla_1.svg" alt="" class="decorative-icon icon-tape-advantages">
         <div class="container">
-            <div class="text-content">
-                <h2>ZALETY DOMKÓW SKANDYNAWSKICH</h2>
-                <p style="text-align: justify; text-align-last: center;">Wybierając domy w stylu skandynawskim,
-                    zyskujesz realną przestrzeń i swobodę. To architektura, która łączy w sobie surowe piękno natury z
-                    bezkompromisową funkcjonalnością, tworząc miejsce idealne do życia i wypoczynku dla Ciebie i Twojej
-                    rodziny.</p>
-                <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div style="text-align: left;">
-                            <strong>Większa powierzchnia użytkowa</strong><br>
-                            <span style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Cieńsze
-                                ściany konstrukcyjne oznaczają więcej miejsca dla Ciebie przy tym samym obrysie
-                                budynku.</span>
-                        </div>
-                    </li>
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div style="text-align: left;">
-                            <strong>Elastyczność i modułowość</strong><br>
-                            <span style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Lekka
-                                konstrukcja pozwala na łatwą przebudowę lub rozbudowę w przyszłości, dopasowując dom do
-                                potrzeb rodziny.</span>
-                        </div>
-                    </li>
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div style="text-align: left;">
-                            <strong>Budowa przez cały rok</strong><br>
-                            <span
-                                style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Ograniczenie
-                                prac mokrych sprawia, że Twój dom może powstawać nieprzerwanie, również w okresie
-                                zimowym.</span>
-                        </div>
-                    </li>
-                </ul>
-                <a href="portfolio.html" style="text-decoration: underline; color: #fff;">Dowiedz się więcej</a>
+            <div class="advantages-layout">
+                <!-- Left Column: Advantages -->
+                <div class="advantages-column">
+                    <h2>ZALETY DOMKÓW SKANDYNAWSKICH</h2>
+                    <p style="text-align: justify; text-align-last: left; margin-bottom: 20px;">Wybierając domy w stylu
+                        skandynawskim, zyskujesz realną przestrzeń i swobodę. To architektura, która łączy w sobie
+                        surowe piękno natury z bezkompromisową funkcjonalnością, tworząc miejsce idealne do życia.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Większa powierzchnia użytkowa</strong><br>
+                                <span
+                                    style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Dzięki
+                                    nowoczesnej technologii szkieletowej, ściany zewnętrzne są cieńsze niż w
+                                    budownictwie tradycyjnym, przy zachowaniu doskonałych parametrów
+                                    izolacyjnych.</span>
+                            </div>
+                        </li>
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Elastyczność i modułowość</strong><br>
+                                <span
+                                    style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Konstrukcja
+                                    szkieletowa oferuje wyjątkową swobodę aranżacji wnętrz oraz łatwość wprowadzania
+                                    zmian. Rozbudowa domu o nowe moduły to standard.</span>
+                            </div>
+                        </li>
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Budowa przez cały rok</strong><br>
+                                <span style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Tzw.
+                                    "sucha technologia" eliminuje konieczność przerw technologicznych. Montaż elementów
+                                    odbywa się niezależnie od warunków pogodowych.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="portfolio.html" class="advantages-link">Dowiedz się więcej</a>
+                </div>
+
+                <!-- Right Column: Materials -->
+                <div class="advantages-column">
+                    <h2>WYKORZYSTYWANE<br>MATERIAŁY</h2>
+                    <p style="text-align: justify; text-align-last: left; margin-bottom: 20px;">Jakość naszych domów
+                        zaczyna się od surowca. Wykorzystujemy wyłącznie certyfikowane drewno konstrukcyjne, które
+                        gwarantuje trwałość, stabilność wymiarową i odporność na warunki atmosferyczne.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Drewno Konstrukcyjne C24</strong><br>
+                                <span
+                                    style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Szwedzkie
+                                    drewno świerkowe, suszone komorowo do wilgotności 15-18%, czterostronnie strugane i
+                                    fazowane. Cechuje się wysoką wytrzymałością.</span>
+                            </div>
+                        </li>
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Izolacja Wełną Skalną</strong><br>
+                                <span
+                                    style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Stosujemy
+                                    wełnę skalną o niskim współczynniku przenikania ciepła. Zapewnia ona nie tylko
+                                    komfort termiczny, ale także doskonałe wygłuszenie akustyczne i bezpieczeństwo
+                                    pożarowe.</span>
+                            </div>
+                        </li>
+                        <li style="margin-bottom:15px; display: flex; align-items: start;"><span
+                                style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
+                            <div style="text-align: left;">
+                                <strong>Płyty Fermacell i MFP</strong><br>
+                                <span style="font-size: 0.9rem; color: #ccc; display: block; text-align: justify;">Dla
+                                    zwiększenia sztywności i wytrzymałości ścian stosujemy płyty gipsowo-włóknowe
+                                    Fermacell oraz płyty budowlane MFP, które są odporne na wilgoć.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="portfolio.html" class="advantages-link">Dowiedz się więcej</a>
+                </div>
             </div>
-            <div class="image-content">
-                <div class="advantages-grid">
-                    <div class="advantage-item">
-                        <img src="images/konstrukcja-szkieletowa-1.png" alt="Konstrukcja Szkieletowa">
-                        <div class="advantage-number">1</div>
+
+        </div>
+    </section>
+
+    <!-- Advantages (Feature 2 - Reversed) -->
+    <section class="section-alt section-shade-5">
+        <!-- Decorative Icon: Saw -->
+        <img src="images/Ikona-pily-bez-tla_1.svg" alt="" class="decorative-icon icon-saw">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">ELASTYCZNE WARIANTY REALIZACJI</h2>
+            <p style="text-align: justify; max-width: 800px; margin: 0 auto 50px auto; color: var(--text-muted);">
+                Oferujemy pełną elastyczność, dostosowując zakres prac do Twoich możliwości finansowych i
+                organizacyjnych. Niezależnie od tego, czy planujesz samodzielne wykończenie, czy oczekujesz gotowego do
+                zamieszkania wnętrza, mamy dla Ciebie odpowiednie rozwiązanie. Wybierz standard, który najlepiej
+                odpowiada Twoim potrzebom.
+            </p>
+
+            <div class="offer-grid">
+                <!-- Card 1: Stan Surowy -->
+                <div class="offer-card">
+                    <div class="offer-image placeholder">
+                        <!-- Space for future photo -->
                     </div>
-                    <div class="advantage-item">
-                        <img src="images/konstrukcja-szkieletowa-2.png" alt="Szkielet konstrukcji">
-                        <div class="advantage-number">2</div>
+                    <div class="offer-content">
+                        <h3>Stan Surowy Zamknięty</h3>
+                        <p>Solidna baza. Gotowa konstrukcja budynku z dachem, oknami i drzwiami zewnętrznymi. Idealny
+                            wybór, jeśli chcesz realizować prace wykończeniowe we własnym zakresie.</p>
+                        <ul class="offer-features">
+                            <li><span style="color:#FFC125;">✓</span> Konstrukcja szkieletowa</li>
+                            <li><span style="color:#FFC125;">✓</span> Pokrycie dachowe</li>
+                            <li><span style="color:#FFC125;">✓</span> Stolarka okienna</li>
+                        </ul>
                     </div>
-                    <div class="advantage-item">
-                        <img src="images/zdjecie-domku-do-boku.png" alt="Widok boczny domu">
-                        <div class="advantage-number">3</div>
+                </div>
+
+                <!-- Card 2: Stan Deweloperski -->
+                <div class="offer-card">
+                    <div class="offer-image placeholder">
+                        <!-- Space for future photo -->
+                    </div>
+                    <div class="offer-content">
+                        <h3>Stan Deweloperski</h3>
+                        <p>Kompletne rozwiązanie techniczne. Budynek posiada elewację, ocieplenie oraz rozprowadzone
+                            wszystkie instalacje. Ściany są gotowe do malowania.</p>
+                        <ul class="offer-features">
+                            <li><span style="color:#FFC125;">✓</span> Elewacja zewnętrzna</li>
+                            <li><span style="color:#FFC125;">✓</span> Instalacje wewn.</li>
+                            <li><span style="color:#FFC125;">✓</span> Tynki i wylewki</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pod Klucz -->
+                <div class="offer-card">
+                    <div class="offer-image placeholder">
+                        <!-- Space for future photo -->
+                    </div>
+                    <div class="offer-content">
+                        <h3>Pod Klucz</h3>
+                        <p>Komfort od pierwszego dnia. Odbierasz dom w pełni wykończony – z podłogami, pomalowanymi
+                            ścianami i drzwiami wewnętrznymi. Wystarczy wnieść meble.</p>
+                        <ul class="offer-features">
+                            <li><span style="color:#FFC125;">✓</span> Podłogi i ściany</li>
+                            <li><span style="color:#FFC125;">✓</span> Biały montaż</li>
+                            <li><span style="color:#FFC125;">✓</span> Drzwi wewnętrzne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </section>
+
+
+
+    <!-- Gallery Preview (New) -->
+    <link rel="stylesheet" href="faq.css">
+    <!-- FAQ Section -->
+    <section class="section-alt" style="background-color: #252525;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px;">NAJCZĘSTSZE PYTANIA</h2>
+            <div class="faq-container">
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <button class="faq-question">Czy domy szkieletowe są ciepłe?</button>
+                        <div class="faq-answer">
+                            <p>Tak, domy szkieletowe charakteryzują się doskonałą izolacją termiczną. Dzięki
+                                zastosowaniu nowoczesnych materiałów izolacyjnych w całej grubości ścian, szybko się
+                                nagrzewają i długo trzymają ciepło, co przekłada się na niższe koszty ogrzewania.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Ile trwa budowa domu?</button>
+                        <div class="faq-answer">
+                            <p>Budowa domu szkieletowego jest znacznie szybsza niż tradycyjnego. Stan surowy zamknięty
+                                możemy osiągnąć już w 3-4 tygodnie, a stan deweloperski w około 3 miesiące od
+                                rozpoczęcia prac na budowie.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Jak wygląda akustyka w domach szkieletowych?</button>
+                        <div class="faq-answer">
+                            <p>Stosujemy wielowarstwowe przegrody z wypełnieniem z wełny, co zapewnia świetną izolację
+                                akustyczną. Wygłuszenie stropów i ścian działowych sprawia, że dom jest cichy i
+                                komfortowy.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Czy na ścianach można wieszać ciężkie szafki?</button>
+                        <div class="faq-answer">
+                            <p>Bez problemu. Ściany w naszych domach są wzmacniane płytami konstrukcyjnymi (OSB/MFP) pod
+                                płytą gipsowo-kartonową. Dzięki temu można bezpiecznie montować szafki kuchenne,
+                                telewizory czy ciężkie półki w dowolnym miejscu, bez obaw o wytrzymałość.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <button class="faq-question">Jaką trwałość mają domy skandynawskie?</button>
+                        <div class="faq-answer">
+                            <p>Przy prawidłowym wykonaniu i odpowiedniej konserwacji, domy w technologii szkieletowej
+                                mogą służyć przez ponad 100 lat. Kluczem jest jakość drewna (suszone komorowo C24) oraz
+                                precyzja wykonania, którą gwarantujemy.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Czy można budować zimą?</button>
+                        <div class="faq-answer">
+                            <p>Tak! Technologia szkieletowa to tzw. "sucha technologia", co oznacza, że większość prac
+                                nie wymaga użycia wody (jak w przypadku murowania czy wylewania betonu). Dzięki temu
+                                budowę można prowadzić niemal przez cały rok, również zimą.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Czy domy szkieletowe są bezpieczne pożarowo?</button>
+                        <div class="faq-answer">
+                            <p>Tak. Konstrukcja jest zabezpieczona płytami gipsowo-kartonowymi, które są niepalne, a
+                                samo drewno konstrukcyjne jest strugane i fazowane, co znacznie utrudnia zapłon (klasa
+                                C24). Stosujemy się do rygorystycznych norm PPOŻ.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Czy elewacja drewniana wymaga częstej konserwacji?</button>
+                        <div class="faq-answer">
+                            <p>Stosujemy wysokiej jakości drewno skandynawskie oraz profesjonalne impregnaty, które
+                                zabezpieczają elewację na długie lata. Konserwacja jest prosta i zazwyczaj wymagana co
+                                5-8 lat, w zależności od ekspozycji na słońce.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advantages (Feature 2 - Reversed) -->
-    <section class="section-alt section-shade-2">
-        <!-- Decorative Icon: Saw -->
-        <!-- Decorative Icon: Saw -->
-        <img src="images/Ikona-pily-bez-tla_1.svg" alt="" class="decorative-icon icon-saw">
-        <div class="container grid-2">
-            <div class="image-content">
-                <img src="images/drewno-konstrukcyjne-na-budowie.jpg" alt="Jakość Materiałów">
-            </div>
-            <div class="text-content">
-                <h2>Najwyższa Jakość Materiałów</h2>
-                <p>Korzystamy wyłącznie z certyfikowanego drewna i nowoczesnych materiałów izolacyjnych. Zapewniamy
-                    energooszczędność i komfort termiczny przez cały rok.</p>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div>
-                            <strong>Certyfikowane drewno konstrukcyjne C24</strong><br>
-                            <span style="font-size: 0.9rem; color: #ccc;">Suszone komorowo, czterostronnie strugane –
-                                gwarancja trwałości i stabilności wymiarowej konstrukcji.</span>
-                        </div>
-                    </li>
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div>
-                            <strong>Wysokiej klasy izolacja termiczna</strong><br>
-                            <span style="font-size: 0.9rem; color: #ccc;">Ekologiczna wełna mineralna o niskim
-                                współczynniku przewodzenia ciepła, zapewniająca komfort cieplny zimą i latem.</span>
-                        </div>
-                    </li>
-                    <li style="margin-bottom:15px; display: flex; align-items: start;"><span
-                            style="color:#FFC125; font-weight:bold; margin-right:10px; font-size: 1.2rem;">✓</span>
-                        <div>
-                            <strong>Profesjonalne łącza ciesielskie</strong><br>
-                            <span style="font-size: 0.9rem; color: #ccc;">Stosujemy certyfikowane łączniki i wkręty,
-                                które gwarantują maksymalną wytrzymałość i stabilność całej konstrukcji przez
-                                dekady.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Gallery Preview (New) -->
     <!-- Gallery Preview (New) -->
     <section class="portfolio-preview section-shade-3">
         <div class="container">
             <h2>Nasze Realizacje</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #ccc;">Poznaj nasze wybrane
-                projekty, które łączą skandynawski minimalizm z najwyższą jakością wykonania.</p>
+            <p class="portfolio-description">Poznaj nasze wybrane
+                projekty, które łączą skandynawski minimalizm z najwyższą jakością wykonania. Każda realizacja to
+                unikalna historia, w której precyzja rzemiosła spotyka się z wizją inwestora. Tworzymy domy, które nie
+                tylko zachwycają formą, ale przede wszystkim zapewniają komfort i funkcjonalność na lata.</p>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
                     <img src="images/zdjecie-domku-do-boku.png" alt="Elegancki dom szkieletowy">
                     <div class="portfolio-overlay">
-                        <span>Dom w górach</span>
+                        <div class="portfolio-details">
+                            <h3>Dom w Górach</h3>
+                            <ul>
+                                <li><strong>Lokalizacja:</strong> Zakopane</li>
+                                <li><strong>Metraż:</strong> 120 m²</li>
+                                <li><strong>Czas Budowy:</strong> 3 miesiące</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="portfolio-item">
                     <img src="images/Taras-domu.JPG" alt="Przestronny taras">
                     <div class="portfolio-overlay">
-                        <span>Drewniany taras</span>
+                        <div class="portfolio-details">
+                            <h3>Drewniany Taras</h3>
+                            <ul>
+                                <li><strong>Lokalizacja:</strong> Mazury</li>
+                                <li><strong>Powierzchnia:</strong> 40 m²</li>
+                                <li><strong>Czas Realizacji:</strong> 2 tygodnie</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="portfolio-item">
                     <img src="images/pełny-widok-domu.png" alt="Nowoczesna bryła">
                     <div class="portfolio-overlay">
-                        <span>Nowoczesna stodoła</span>
+                        <div class="portfolio-details">
+                            <h3>Nowoczesna Stodoła</h3>
+                            <ul>
+                                <li><strong>Lokalizacja:</strong> Podlasie</li>
+                                <li><strong>Metraż:</strong> 180 m²</li>
+                                <li><strong>Czas Budowy:</strong> 4 miesiące</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
