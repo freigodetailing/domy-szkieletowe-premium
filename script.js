@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll('section:not(.hero):not(.portfolio-preview), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item');
+    const animatedElements = document.querySelectorAll('section:not(.hero):not(.portfolio-preview), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item, .text-content, .image-content, .contact-layout > div');
 
     animatedElements.forEach(el => {
         // Skip staggered elements on mobile so they are handled by the specific mobile observer
@@ -83,5 +83,121 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Testimonial Slider Logic
+    const initTestimonialSlider = () => {
+        const track = document.querySelector('.testimonial-track');
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        const dotsNav = document.querySelector('.slider-dots');
+
+        if (!slides.length) return;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                moveToSlide(index);
+                stopAutoSlide(); // Pause interacting
+                startAutoSlide(); // Resume
+            });
+            dotsNav.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsNav.children);
+        let currentSlideIndex = 0;
+        let autoSlideInterval;
+
+        const updateDots = (index) => {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        };
+
+        const updateSlidesState = (index) => {
+            // Optional: visual active state for cards if visible
+            slides.forEach(slide => slide.classList.remove('active-slide'));
+            slides[index].classList.add('active-slide');
+        };
+
+        const moveToSlide = (index) => {
+            track.style.transform = 'translateX(-' + (index * 100) + '%)';
+            currentSlideIndex = index;
+            updateDots(index);
+            updateSlidesState(index);
+        };
+
+        const nextSlide = () => {
+            let nextIndex = currentSlideIndex + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0;
+            }
+            moveToSlide(nextIndex);
+        };
+
+        const prevSlide = () => {
+            let prevIndex = currentSlideIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1;
+            }
+            moveToSlide(prevIndex);
+        };
+
+        // Event Listeners
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        }
+
+        const startAutoSlide = () => {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(nextSlide, 5000); // 5 seconds
+        };
+
+        const stopAutoSlide = () => {
+            clearInterval(autoSlideInterval);
+        };
+
+        // Initialize
+        moveToSlide(0);
+        startAutoSlide();
+
+        // Touch support (Simple swipe)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoSlide();
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        }, { passive: true });
+
+        const handleSwipe = () => {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        };
+    };
+
+    initTestimonialSlider();
 });
 
