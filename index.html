@@ -66,6 +66,8 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
     <!-- Testimonials & Trust Section -->
     <section class="testimonials section-testimonials-premium">
         <div class="container">
@@ -151,6 +153,8 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
     <!-- Why Skeleton Houses -->
     <section class="benefits section-shade-2">
 
@@ -191,11 +195,13 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
     <!-- Advantages (Feature 1) -->
     <section class="section-alt bg-premium-gradient">
         <!-- Decorative Icon: Tape (Advantages) -->
         <img src="images/Ikona-metrowki-bez-tla_1.svg" alt="" class="decorative-icon icon-tape-advantages">
-        <img src="images/Ikona-ekierki-bez-tla_1.svg" alt="" class="decorative-icon icon-square-materials">
+        <img src="images/Ikona-pily-bez-tla_1.svg" alt="" class="decorative-icon icon-square-materials">
         <div class="container">
             <div class="advantages-layout">
                 <!-- Left Column: Advantages -->
@@ -284,10 +290,12 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
     <!-- Advantages (Feature 2 - Reversed) -->
     <section class="section-alt section-shade-5">
         <!-- Decorative Icon: Saw -->
-        <img src="images/Ikona-pily-bez-tla_1.svg" alt="" class="decorative-icon icon-saw">
+        <img src="images/Ikona-ekierki-bez-tla_1.svg" alt="" class="decorative-icon icon-square-offer">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 50px;">ELASTYCZNE WARIANTY REALIZACJI</h2>
             <p style="text-align: justify; max-width: 800px; margin: 0 auto 50px auto; color: var(--text-muted);">
@@ -357,13 +365,14 @@
             </div>
         </div>
     </section>
-    </div>
-    </section>
 
 
 
     <!-- Gallery Preview (New) -->
     <link rel="stylesheet" href="faq.css">
+
+    <div class="section-separator"></div>
+
     <!-- FAQ Section -->
     <section class="section-alt bg-premium-gradient">
         <div class="container">
@@ -441,6 +450,8 @@
         </div>
     </section>
 
+    <div class="section-separator"></div>
+
     <!-- Gallery Preview (New) -->
     <section class="portfolio-preview section-shade-3">
         <div class="container">
@@ -496,12 +507,7 @@
         </div>
     </section>
 
-
-
-
-
-
-
+    <div class="section-separator"></div>
 
     <!-- Contact CTA -->
     <section class="contact-cta section-shade-4 bg-premium-gradient" id="kontakt">
@@ -523,12 +529,22 @@
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="phone" placeholder="Telefon">
                     <textarea name="message" placeholder="Wiadomość / Pytania"></textarea>
-                    <button type="submit" class="btn" style="width: 100%; border:none; cursor:pointer;">Wyślij
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                        <label for="privacy-policy">
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a
+                                href="polityka-prywatnosci.html"
+                                style="color: #FFC125; text-decoration: underline;">Polityką Prywatności</a>.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Wyślij
                         Zgłoszenie</button>
                 </form>
             </div>
         </div>
     </section>
+
+    <div class="section-separator"></div>
 
     <!-- Footer -->
     <footer>
@@ -571,7 +587,27 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="container cookie-content">
+            <p>Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a href="polityka-prywatnosci.html"
+                    style="color: #FFC125; text-decoration: underline;">Polityką Prywatności</a>. Możesz określić
+                warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce.</p>
+            <div class="cookie-actions">
+                <button id="accept-cookies" class="btn btn-sm">Akceptuję</button>
+                <button id="close-cookies" class="close-icon" aria-label="Zamknij">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>

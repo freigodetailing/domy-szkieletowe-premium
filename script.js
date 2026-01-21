@@ -199,5 +199,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initTestimonialSlider();
+
+    // Cookie Consent Logic
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const closeBtn = document.getElementById('close-cookies');
+
+    if (cookieBanner) {
+        // Check if user has already accepted/closed
+        const consent = localStorage.getItem('cookieConsent');
+
+        if (!consent) {
+            // Show banner after a short delay
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+
+        const hideBanner = () => {
+            cookieBanner.classList.remove('show');
+            localStorage.setItem('cookieConsent', 'true');
+        };
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', hideBanner);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', hideBanner);
+        }
+    }
 });
 
