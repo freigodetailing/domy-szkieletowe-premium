@@ -95,6 +95,8 @@
     line-height: 1.6;
     font-size: 0.95rem;
     margin: 0;
+    text-align: justify;
+    /* Justify text */
 }
 
 /* Mobile adjustments */

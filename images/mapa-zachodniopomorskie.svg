@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Stylized West Pomerania Outline -->
+    <path d="M180 50 
+             C 220 40, 450 30, 580 60  <!-- Coastline -->
+             L 600 200 
+             L 550 450 
+             L 300 550 
+             L 100 400 
+             L 120 200 
+             Z" 
+          fill="none" 
+          stroke="white" 
+          stroke-width="10" 
+          stroke-opacity="0.5"/>
+</svg>

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll('section:not(.hero):not(.portfolio-preview), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item, .text-content, .image-content, .contact-layout > div');
+    const animatedElements = document.querySelectorAll('section:not(.hero):not(.portfolio-preview):not(.faq-parallax-section), h2, .benefit-card, .review-card, .team-member, footer, .advantage-item, .text-content, .image-content, .contact-layout > div');
 
     animatedElements.forEach(el => {
         // Skip staggered elements on mobile so they are handled by the specific mobile observer
@@ -229,5 +229,150 @@ document.addEventListener('DOMContentLoaded', () => {
             closeBtn.addEventListener('click', hideBanner);
         }
     }
-});
 
+    // Realizacje Carousel Logic
+    const initRealizacjeCarousel = () => {
+        const track = document.querySelector('.realizacje-carousel-track');
+        if (!track) return;
+
+        const items = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-prev-btn');
+        const nextButton = document.querySelector('.carousel-next-btn');
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        if (!items.length) return;
+
+        let currentIndex = 0;
+        let autoScrollInterval;
+        const itemWidth = items[0].offsetWidth + 20; // item width + gap
+        const scrollAmount = itemWidth; // scroll by one item width
+
+        // Get dots
+        const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
+
+        const updateDots = (index) => {
+            // Reset all dots first
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                dot.style.filter = ''; // Reset brightness/filter
+                dot.style.opacity = ''; // Reset opacity if used
+                dot.style.backgroundColor = ''; // Reset background color
+            });
+
+            // Calculate which dot to activate (0-3)
+            const dotIndex = index % dots.length;
+
+            // Calculate which cycle we are in (0 = items 0-3, 1 = items 4-7, etc.)
+            const cycle = Math.floor(index / dots.length);
+
+            if (dots[dotIndex]) {
+                const dot = dots[dotIndex];
+                dot.classList.add('active');
+
+                // Apply specific colors based on cycle
+                // Cycle 0: Default (Yellow/Gold defined in CSS)
+                // Cycle 1: Strong Orange
+                // Cycle 2: Red
+                if (cycle === 1) {
+                    dot.style.backgroundColor = '#FF6600'; // Strong Orange
+                } else if (cycle >= 2) {
+                    dot.style.backgroundColor = '#FF0000'; // Red
+                }
+            }
+        };
+
+        const moveCarousel = (direction) => {
+            if (direction === 'next') {
+                currentIndex++;
+                // Reset to start if we've scrolled past the last item
+                if (currentIndex >= items.length - 1) {
+                    currentIndex = 0;
+                }
+            } else {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = items.length - 2; // Show last two items
+                }
+            }
+
+            const translateX = -(currentIndex * scrollAmount);
+            track.style.transform = `translateX(${translateX}px)`;
+            updateDots(currentIndex);
+        };
+
+        // Navigation button event listeners
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                moveCarousel('next');
+                stopAutoScroll();
+                startAutoScroll();
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                moveCarousel('prev');
+                stopAutoScroll();
+                startAutoScroll();
+            });
+        }
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const diff = index - currentIndex;
+                currentIndex = index;
+                const translateX = -(currentIndex * scrollAmount);
+                track.style.transform = `translateX(${translateX}px)`;
+                updateDots(currentIndex);
+                stopAutoScroll();
+                startAutoScroll();
+            });
+        });
+
+        // Auto-scroll functionality
+        const startAutoScroll = () => {
+            stopAutoScroll();
+            autoScrollInterval = setInterval(() => {
+                moveCarousel('next');
+            }, 4000); // Auto-scroll every 4 seconds
+        };
+
+        const stopAutoScroll = () => {
+            clearInterval(autoScrollInterval);
+        };
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoScroll();
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoScroll();
+        }, { passive: true });
+
+        const handleSwipe = () => {
+            if (touchEndX < touchStartX - 50) moveCarousel('next');
+            if (touchEndX > touchStartX + 50) moveCarousel('prev');
+        };
+
+        // Initialize
+        updateDots(0);
+        startAutoScroll();
+
+        // Pause auto-scroll when hovering over carousel
+        const carouselWrapper = document.querySelector('.realizacje-carousel-wrapper');
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('mouseenter', stopAutoScroll);
+            carouselWrapper.addEventListener('mouseleave', startAutoScroll);
+        }
+    };
+
+    initRealizacjeCarousel();
+});
