@@ -375,4 +375,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initRealizacjeCarousel();
+
+    // Construction Process Timeline Animation
+    const processRows = document.querySelectorAll('.process-row');
+
+    if (processRows.length > 0) {
+        const processObserverOptions = {
+            threshold: 0.5, // Trigger when 50% of the row is visible (center of screen)
+            rootMargin: "-10% 0px -10% 0px" // Narrow the "active" zone
+        };
+
+        const processObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active from all others? Or just add to current?
+                    // User said: "zjezdzajac zgasnie i zapali sie kolejny" -> implies only one active at a time.
+
+                    // Option 1: Exclusive active state (more strict)
+                    processRows.forEach(row => row.classList.remove('active'));
+                    entry.target.classList.add('active');
+                } else {
+                    // Optional: remove active when leaving?
+                    // entry.target.classList.remove('active'); 
+                    // Using exclusive remove above makes this redundant if we only care about the one in center.
+                }
+            });
+        }, processObserverOptions);
+
+        processRows.forEach(row => {
+            processObserver.observe(row);
+        });
+    }
 });

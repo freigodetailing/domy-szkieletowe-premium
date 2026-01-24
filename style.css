@@ -2165,22 +2165,43 @@ footer {
 
 .carousel-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%);
-    /* Reduced opacity */
+    height: auto;
+    background: rgba(10, 10, 10, 0.9);
+    /* Darker black bar */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    backdrop-filter: blur(1px);
+    flex-direction: row;
+    /* Horizontal layout */
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 10px;
+    opacity: 1;
+    /* Always visible */
+    transition: none;
+    backdrop-filter: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .carousel-overlay {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        padding: 10px;
+        justify-items: center;
+        /* Center items in grid cells */
+    }
+
+    .spec-item {
+        font-size: 0.75rem !important;
+        /* Slightly smaller text */
+        width: 100%;
+        justify-content: center;
+        /* Center content */
+    }
 }
 
 .realizacje-carousel-item:hover .carousel-overlay {
@@ -2190,23 +2211,24 @@ footer {
 .spec-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     color: white;
-    font-weight: 500;
-    font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.25);
-    /* Reduced opacity for item background */
-    padding: 6px 12px;
-    border-radius: 4px;
-    border-left: 3px solid #FFC125;
+    font-weight: 400;
+    font-size: 0.8rem;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border-left: none;
+    /* Remove border */
     width: auto;
-    backdrop-filter: blur(2px);
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    backdrop-filter: none;
+    transform: none;
+    /* Remove transform */
+    transition: none;
 }
 
 .realizacje-carousel-item:hover .spec-item {
-    transform: translateY(0);
+    transform: none;
 }
 
 .spec-item svg {
@@ -2297,39 +2319,641 @@ footer {
     }
 }
 
-/ *   P h i l o s o p h y   S e c t i o n   S t y l e s   * /     . p h i l o s o p h y - h e a d e r    {
-                 f o n t - f a m i l y :    ' T i m e s   N e w   R o m a n '  ,    s e r i f ;
-                 f o n t - s t y l e :    i t a l i c ;
-                 f o n t - w e i g h t :    4 0 0 ;
-                 f o n t - s i z e :    2 r e m ;
-                 c o l o r :    v a r ( - - a c c e n t - c o l o r ) ;
-                 m a r g i n - b o t t o m :    2 0 p x ;
-         
+/* Removed malformed Philosophy Section Styles */
+
+
+#etapy {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    /* Default desktop padding */
 }
 
-         . p h i l o s o p h y - t e x t    {
-                 m a x - w i d t h :    8 0 0 p x ;
-                 m a r g i n :    0   a u t o   4 0 p x   a u t o ;
-                 f o n t - s i z e :    1 . 1 r e m ;
-                 l i n e - h e i g h t :    1 . 8 ;
-         
+@media (max-width: 900px) {
+    #etapy {
+        padding-top: 60px;
+        /* Mobile top padding for title */
+        padding-bottom: 20px;
+        /* Reduced bottom padding to avoid gap */
+    }
 }
 
-         . p h i l o s o p h y - s e p a r a t o r    {
-                 w i d t h :    1 5 0 p x ;
-                 h e i g h t :    1 p x ;
-                 b a c k g r o u n d :    l i n e a r - g r a d i e n t ( t o   r i g h t ,    t r a n s p a r e n t ,    # F F C 1 2 5 ,    t r a n s p a r e n t ) ;
-                 m a r g i n :    0   a u t o ;
-         
+/* Process / Steps Section */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
 }
 
-         @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )    {
-                 . p h i l o s o p h y - h e a d e r    {
-                             f o n t - s i z e :    1 . 5 r e m ;
-                     
+.process-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 193, 37, 0.3);
+}
+
+.process-number {
+    font-size: 4rem;
+    color: #ffffff;
+    font-weight: 900;
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    line-height: 1;
+}
+
+.process-card h4 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.process-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+}
+
+@media (max-width: 900px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Process Checkerboard Layout */
+.process-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 60px;
+    padding: 80px 0;
+    /* Moved from inline style */
+}
+
+.process-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    /* For connecting line if needed later */
+}
+
+/* Odd rows: Text Left, Image Right */
+.process-row:nth-child(odd) {
+    flex-direction: row;
+}
+
+/* Even rows: Image Left, Text Right */
+.process-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.process-text-content {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+}
+
+.process-image-container {
+    flex: 1;
+    position: relative;
+    height: 350px;
+    border-radius: 4px;
+    overflow: hidden;
+    /* Optional: Add a frame or shadow effect akin to benefits */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.process-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.process-row:hover .process-image-container img {
+    transform: scale(1.05);
+}
+
+.process-step-number {
+    font-family: var(--font-h1);
+    font-size: 5rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.process-step-number.solid-white {
+    color: #ffffff;
+    opacity: 1;
+    -webkit-text-stroke: 0;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+
+.process-text-content h4 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.process-text-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .process-container {
+        padding: 40px 0;
+        /* Reduced mobile padding */
+        gap: 20px;
     }
 
-         
+    .process-row:last-child {
+        margin-bottom: 0 !important;
+        /* Remove margin from last row */
+    }
+
+    .process-row {
+        gap: 30px;
+    }
+
+    .process-row:nth-child(odd),
+    .process-row:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .process-image-container {
+        width: 100%;
+        height: 250px;
+    }
 }
 
-     
+/* Updated Process Full Width Layout */
+.process-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Remove gap for seamless join */
+    margin-top: 60px;
+    padding: 80px 100px;
+    /* Moved from inline style and specific padding combined */
+    width: 100%;
+    max-width: 100%;
+    /* padding: 0 100px;  Combined above */
+    /* Constrain full width by 100px on sides */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+}
+
+.process-row {
+    display: flex;
+    align-items: center;
+    /* Center content vertically */
+    gap: 0;
+    width: 100%;
+    margin-bottom: 0;
+    /* Ensure no extra spacing */
+}
+
+.process-image-container {
+    border-radius: 0;
+    border: none;
+    height: 500px;
+    /* Fixed identical height for all images */
+    width: 50%;
+    /* Explicit width to match text container */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+.process-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    padding: 60px 80px;
+    /* Add significant padding */
+}
+
+@media (max-width: 900px) {
+    .process-text-content {
+        padding: 40px 20px;
+    }
+
+    .process-row {
+        gap: 0;
+    }
+}
+
+/* Process Details List */
+.process-details-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.process-details-list li {
+    flex-basis: 100%;
+    /* Stack on mobile, maybe 45% on desktop? */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Custom Checkmark Icon */
+.process-details-list li::before {
+    content: '?';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+@media (min-width: 901px) {
+    .process-details-list li {
+        flex-basis: calc(50% - 10px);
+        /* 2 columns on desktop */
+    }
+}
+
+/* Styles for 'Read More' links in process steps */
+.process-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 300;
+    /* Thin font */
+    color: #ffffff;
+    /* White color */
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-transform: none;
+    /* Remove uppercase if desired, keeping consistent with 'thin' look */
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+.process-link i {
+    margin-left: 8px;
+    font-size: 0.8em;
+    /* Slightly smaller arrow */
+    transition: transform 0.3s ease;
+}
+
+.process-link:hover {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.process-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Image Frame Style */
+.process-image-container {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Visible frame without background */
+    padding: 10px;
+    /* Space between frame and image */
+    background: transparent;
+    /* Explicitly transparent */
+}
+
+/* Adjust image within frame */
+.process-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Remove bottom space */
+}
+
+/* Unique Design - Timeline & Accents */
+
+/* 1. Timeline Line */
+.process-container {
+    position: relative;
+    /* Context for line */
+    overflow: hidden;
+    /* Hide line ending if too long, though we control height */
+}
+
+/* The vertical line */
+.process-container::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    /* Start below the first image top edge approx */
+    bottom: 50px;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+    transform: translateX(-50%);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+/* 2. Step Markers (Diamonds) */
+.process-row::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #1a1a1a;
+    /* Match background to hide line behind */
+    border: 2px solid var(--accent-color);
+    transform: translate(-50%, -50%) rotate(45deg);
+    /* Diamond shape */
+    z-index: 1;
+    /* Above the line */
+    box-shadow: 0 0 10px rgba(255, 193, 37, 0.3);
+}
+
+/* 3. Enhanced Text Accents */
+.process-text-content {
+    border-left: 1px solid rgba(255, 193, 37, 0.1);
+    /* Subtle gold line on left */
+    padding-left: 60px;
+    /* More space for the line */
+}
+
+/* Adjust for even rows (Right side text) */
+.process-row:nth-child(even) .process-text-content {
+    border-left: none;
+    border-right: 1px solid rgba(255, 193, 37, 0.1);
+    padding-left: 80px;
+    /* Restore original padding */
+    padding-right: 60px;
+    /* Space for line on right */
+    text-align: right;
+    /* Text aligns to the center */
+}
+
+/* Re-justify P text for even rows to keep block look but maybe align proper?
+   User liked Justify. Let's keep P justified but header/link aligned to timeline?
+*/
+.process-row:nth-child(even) .process-text-content p {
+    text-align: justify;
+    direction: rtl;
+    /* Trick to justify RTL? No, stick to LTR justify */
+}
+
+/* Actually, keep simple justify for p everywhere. */
+
+
+/* 4. Mobile Cleanups */
+@media (max-width: 900px) {
+    .process-container::before {
+        display: none;
+        /* Hide timeline line */
+    }
+
+    .process-row::after {
+        display: none;
+        /* Hide diamonds */
+    }
+
+    .process-text-content {
+        border: none !important;
+        /* Remove accent borders */
+        padding: 40px 20px !important;
+        text-align: center !important;
+        /* Center text on mobile */
+    }
+
+    .process-link {
+        justify-content: center;
+        /* Center link */
+    }
+}
+
+/* Animation States for Process Timeline */
+
+/* Initial State: Inactive Diamond */
+.process-row::after {
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    background-color: #1a1a1a;
+    box-shadow: none;
+    /* No glow initially */
+}
+
+/* Active State: Lit Diamond */
+.process-row.active::after {
+    background-color: var(--accent-color);
+    /* Fill with Gold */
+    box-shadow: 0 0 15px var(--accent-color);
+    /* Strong Glow */
+    border-color: var(--accent-color);
+}
+
+/* Optional: Dim inactive text/image slightly? */
+.process-row {
+    transition: opacity 0.4s ease;
+    opacity: 0.5;
+    /* Fade out inactive rows */
+}
+
+.process-row.active {
+    opacity: 1 !important;
+    /* Fully visible */
+}
+
+/* Enhanced Mobile Adjustments for Construction Stages */
+@media (max-width: 900px) {
+    .process-container {
+        padding: 40px 15px !important;
+        /* Reduce side padding significantly, enforce top/bottom */
+        margin-top: 0 !important;
+    }
+
+
+    .process-row {
+        flex-direction: column !important;
+        /* Force column stack always */
+        margin-bottom: 60px;
+        /* Add space between steps */
+        opacity: 1 !important;
+        /* Disable fade effect on mobile for better UX */
+    }
+
+    /* Standardize Order: Text first, then Image */
+    .process-text-content {
+        order: 1;
+        /* Text first */
+        padding: 0 0 30px 0 !important;
+        text-align: left !important;
+        /* Left align is usually better for reading long text */
+        border: none !important;
+    }
+
+    .process-image-container {
+        order: 2;
+        /* Image second */
+        width: 100%;
+        height: 300px;
+        /* Smaller height for mobile */
+        margin-bottom: 20px;
+    }
+
+    /* Adjust Ghost Number for Mobile */
+    .process-step-number {
+        font-size: 5rem !important;
+        /* Smaller ghost number */
+        top: -20px !important;
+        left: 0 !important;
+        right: auto !important;
+        opacity: 0.1 !important;
+    }
+
+    .process-step-number.solid-white {
+        font-size: 6rem !important;
+    }
+
+    /* Ensure even rows behave same as odd */
+    .process-row:nth-child(even) .process-text-content {
+        padding: 0 0 30px 0 !important;
+        text-align: left !important;
+    }
+
+    .process-row:nth-child(even) .process-step-number {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .process-link {
+        justify-content: flex-start;
+        /* Left align link */
+    }
+}
+
+/* Final Mobile Polish for Construction Stages */
+@media (max-width: 900px) {
+
+    /* Full width images edge-to-edge */
+    .process-image-container {
+        width: 100vw !important;
+        /* Force full viewport width */
+        margin-left: -15px !important;
+        /* Counteract container padding */
+        margin-right: -15px !important;
+        border: none !important;
+        /* Remove frame */
+        padding: 0 !important;
+        /* Remove spacing inside frame */
+        height: auto !important;
+        /* Allow natural height or keep fixed? User said 'extend to limits', usually implies remove constraints. Let's keep a reasonable height or aspect ratio. 300px is fine but 'auto' with aspect-ratio is better. Let's stick to fixed height for consistency or adjust. */
+        height: 300px !important;
+        border-radius: 0 !important;
+    }
+
+    /* Remove animations */
+    .process-row {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .process-row.active {
+        opacity: 1 !important;
+        /* Ensure no flashing */
+    }
+
+    .process-row::after {
+        display: none !important;
+        /* Ensure diamonds are gone */
+    }
+
+    .process-container::before {
+        display: none !important;
+        /* Ensure line is gone */
+    }
+
+    /* Ensure no hover effects on text */
+    .process-row:hover .process-image-container img {
+        transform: none !important;
+    }
+}
+
+/* Enforcing uniform aspect ratio for mobile images */
+@media (max-width: 900px) {
+    .process-image-container {
+        height: auto !important;
+        /* Let aspect ratio define height */
+        aspect-ratio: 4/3 !important;
+        /* Uniform shape for all images */
+        width: 100vw !important;
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    }
+
+    .process-image-container img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        /* Ensure image fills the ratio without distortion */
+        object-position: center !important;
+    }
+}
+
+/* Mobile: Force White and Visible Step Numbers */
+@media (max-width: 900px) {
+
+    .process-step-number,
+    .process-step-number.solid-white {
+        font-size: 5rem !important;
+        /* Keep manageable size */
+        opacity: 1 !important;
+        /* Fully opaque */
+        /* Force pure white */
+        color: #FFFFFF !important;
+        -webkit-text-stroke: 0 !important;
+        position: relative !important;
+        /* Change to relative to sit above text */
+        top: 0 !important;
+        margin-bottom: 5px;
+        display: block;
+        z-index: 2;
+        /* Ensure on top */
+    }
+
+    .process-text-content {
+        padding-top: 10px !important;
+    }
+}
