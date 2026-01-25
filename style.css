@@ -962,21 +962,45 @@ footer {
 @media (max-width: 900px) {
     .advantages-layout {
         flex-direction: column;
-        gap: 80px;
+        gap: 40px;
+        /* Reduced gap from 80px */
     }
 
     .advantages-column h2 {
         text-align: center;
+        margin-bottom: 20px;
+        /* Reduced margin */
+        font-size: 1.5rem;
+        /* Slightly smaller title */
     }
 
     .advantages-column p {
         text-align-last: center !important;
         /* Force center alignment on mobile for description */
+        margin-bottom: 15px !important;
+        /* Reduced margin */
+        font-size: 0.9rem;
+        /* Slightly smaller text */
+    }
+
+    .advantages-column .section-frame {
+        padding: 20px !important;
+        /* Compact padding */
+    }
+
+    .advantages-column ul li {
+        margin-bottom: 10px !important;
+        /* Compact list items */
+    }
+
+    .advantages-column ul li span {
+        font-size: 1rem !important;
+        /* Smaller text */
     }
 
     .advantages-link {
         display: block;
-        margin: 20px auto;
+        margin: 15px auto;
         width: fit-content;
         text-align: center;
     }
@@ -1305,6 +1329,29 @@ footer {
     color: #ddd;
     font-size: 1rem;
     margin-bottom: 10px;
+}
+
+.intro-toggle-btn {
+    display: none;
+    /* Hidden by default on desktop */
+}
+
+/* Restoring Desktop "Section Intro" Styles (replaces lost inline styles) */
+@media (min-width: 901px) {
+    .section-intro {
+        text-align: justify;
+        text-align-last: left;
+        margin-bottom: 40px !important;
+        /* Adjusted separation */
+        padding-bottom: 0px;
+        display: block;
+        max-height: none !important;
+        /* Ensure always visible on desktop */
+        opacity: 1 !important;
+        position: relative;
+        /* Ensure it takes space in flow */
+        z-index: 1;
+    }
 }
 
 .portfolio-details li strong {
@@ -2543,6 +2590,7 @@ footer {
     /* Fixed identical height for all images */
     width: 50%;
     /* Explicit width to match text container */
+    /* Explicit width to match text container */
     flex-shrink: 0;
     /* Prevent shrinking */
 }
@@ -2554,6 +2602,12 @@ footer {
     /* Center content vertically */
     padding: 60px 80px;
     /* Add significant padding */
+    width: 50%;
+    /* Ensure strict 50% width */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 @media (max-width: 900px) {
@@ -2714,27 +2768,32 @@ footer {
     /* More space for the line */
 }
 
+/* Odd rows: Text Left, Image Right */
+.process-row:nth-child(odd) .process-text-content {
+    /* Increased right padding by 220px (base 80 + 220 = 300px) as requested */
+    padding-right: 300px;
+}
+
 /* Adjust for even rows (Right side text) */
 .process-row:nth-child(even) .process-text-content {
     border-left: none;
     border-right: 1px solid rgba(255, 193, 37, 0.1);
-    padding-left: 80px;
-    /* Restore original padding */
-    padding-right: 60px;
-    /* Space for line on right */
-    text-align: right;
+    /* Increased left padding by 220px (base 80 + 220 = 300px) as requested */
+    padding-left: 300px;
+    text-align: left;
     /* Text aligns to the center */
+}
+
+/* Explicitly keep Title and Number to the right for even rows */
+.process-row:nth-child(even) .process-text-content h4,
+.process-row:nth-child(even) .process-text-content .process-step-number {
+    text-align: right;
 }
 
 /* Re-justify P text for even rows to keep block look but maybe align proper?
    User liked Justify. Let's keep P justified but header/link aligned to timeline?
 */
-.process-row:nth-child(even) .process-text-content p {
-    text-align: justify;
-    direction: rtl;
-    /* Trick to justify RTL? No, stick to LTR justify */
-}
-
+/* Increased specificity override */
 /* Actually, keep simple justify for p everywhere. */
 
 
@@ -2793,6 +2852,12 @@ footer {
 .process-row.active {
     opacity: 1 !important;
     /* Fully visible */
+}
+
+/* JS Active State Override - Ensure text stays left */
+.process-row.active .process-text-content p {
+    text-align: justify !important;
+    /* direction: ltr !important; Removed as not needed for justify if base is correct */
 }
 
 /* Enhanced Mobile Adjustments for Construction Stages */
@@ -2956,4 +3021,113 @@ footer {
     .process-text-content {
         padding-top: 10px !important;
     }
+}
+
+/* FINAL OVERRIDE for Construction Stages Text Alignment */
+/* Ensuring text content (Event Descriptions) is strictly LEFT aligned */
+#etapy .process-row:nth-child(even) .process-text-content p {
+    text-align: justify !important;
+    /* text-align-last: auto !important; */
+    direction: ltr !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* FINAL MOBILE FIXES for Construction Stages */
+@media (max-width: 900px) {
+
+    /* Reset Widths */
+    .process-text-content {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .process-image-container {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    /* High Specificity Padding Reset for Mobile */
+    /* Must override the desktop .process-row:nth-child(...) selectors */
+    .process-row:nth-child(odd) .process-text-content,
+    .process-row:nth-child(even) .process-text-content {
+        padding: 30px 20px !important;
+        /* Standard mobile padding */
+        text-align: left !important;
+        /* Left alignment typically looks best on mobile */
+    }
+
+    /* Reset Paragraph Justification if needed, or keep it */
+    #etapy .process-row:nth-child(even) .process-text-content p,
+    #etapy .process-row:nth-child(odd) .process-text-content p {
+        text-align: justify !important;
+        /* Reverting to justify as requested for "entire text" */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* ensure titles/numbers are correctly aligned on mobile (usually left) */
+    .process-row:nth-child(even) .process-text-content h4,
+    .process-row:nth-child(even) .process-text-content .process-step-number {
+        text-align: left !important;
+    }
+
+    /* Reset any image padding tricks */
+    .process-row:nth-child(even) .process-image-container {
+        padding: 0 !important;
+    }
+
+    /* Fix intro text padding to match process rows (35px total: 20px container + 15px here) */
+    #etapy .container p {
+        padding: 0 15px !important;
+        text-align: justify !important;
+    }
+
+    /* Logic for Mobile Intro Toggle */
+    .intro-toggle-btn {
+        display: block !important;
+        margin: 10px auto 20px auto;
+        background: transparent;
+        color: var(--accent-color);
+        border: 1px solid var(--accent-color);
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-family: var(--font-h1);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .intro-toggle-btn:hover,
+    .intro-toggle-btn:focus {
+        background: var(--accent-color);
+        color: #000;
+    }
+
+    .section-intro {
+        display: block;
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        margin-bottom: 0 !important;
+        /* Ensure no spacing when hidden */
+        overflow: hidden;
+        text-align: justify;
+        text-align-last: center;
+        padding: 0 10px;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease;
+    }
+
+    .section-intro.text-expanded {
+        /* max-height handled by JS */
+        opacity: 1;
+        margin-bottom: 15px !important;
+    }
+}
+
+/* Ensure Frame is always visible */
+.section-frame {
+    display: block !important;
+    opacity: 1 !important;
 }

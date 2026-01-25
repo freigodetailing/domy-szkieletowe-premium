@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -406,4 +406,60 @@ document.addEventListener('DOMContentLoaded', () => {
             processObserver.observe(row);
         });
     }
+});
+
+/* Mobile Intro Text Toggle Logic */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.intro-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const introText = this.previousElementSibling;
+            if (introText && introText.classList.contains('section-intro')) {
+                // Ensure transition is active and covers all properties
+                introText.style.transition = 'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease';
+
+                if (introText.classList.contains('text-expanded')) {
+                    // --- COLLAPSE ANIMATION ---
+
+                    // 1. Lock height to current pixel value (start state)
+                    introText.style.maxHeight = introText.scrollHeight + 'px';
+                    introText.style.opacity = '1';
+
+                    // 2. Wait for next frame to ensure the start state is applied
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            // 3. Trigger transition to end state
+                            introText.classList.remove('text-expanded');
+                            introText.style.maxHeight = '0px';
+                            introText.style.opacity = '0';
+                            introText.style.marginTop = '0';
+                            introText.style.marginBottom = '0';
+                        });
+                    });
+
+                    this.innerHTML = 'Poka\u017C opis <i class="fas fa-chevron-down"></i>';
+                } else {
+                    // --- EXPAND ANIMATION ---
+                    introText.classList.add('text-expanded');
+
+                    // Set height to scrollHeight (target state)
+                    introText.style.maxHeight = introText.scrollHeight + 'px';
+                    introText.style.opacity = '1';
+                    introText.style.marginTop = ''; // Restore default if needed
+                    introText.style.marginBottom = '';
+
+                    this.innerHTML = 'Ukryj opis <i class="fas fa-chevron-up"></i>';
+                }
+            }
+        });
+
+        // Initialize state
+        const introText = btn.previousElementSibling;
+        if (introText && introText.classList.contains('section-intro')) {
+            // Ensure fully collapsed initially
+            introText.style.maxHeight = '0px';
+            introText.style.opacity = '0';
+            introText.style.marginTop = '0';
+            introText.style.marginBottom = '0';
+        }
+    });
 });
