@@ -49,7 +49,9 @@
     <section class="hero" style="height: 50vh; min-height: 400px;">
         <div class="container hero-content">
             <h1>SKONTAKTUJ <span style="color:#FFC125">SIĘ</span></h1>
-            <p>Jesteśmy do Twojej dyspozycji. Napisz, zadzwoń lub odwiedź nas.</p>
+            <p>Twój wymarzony dom zaczyna się od jednej rozmowy. Jesteśmy tutaj, aby odpowiedzieć na każde pytanie,
+                rozwiać wątpliwości i przeprowadzić Cię przez proces budowy z pełnym zaangażowaniem. Skontaktuj się z
+                nami, aby omówić szczegóły Twojej inwestycji i poznać standardy, które nas wyróżniają.</p>
         </div>
     </section>
 
@@ -70,10 +72,38 @@
                             style="color:#fff;">kontakt@prestizowedomy.pl</a></p>
                 </div>
 
-                <div style="background: #111; padding: 20px; border: 1px solid #333;">
+                <div style="padding: 40px 0 20px 0;">
                     <h4>Godziny Otwarcia</h4>
-                    <p style="margin: 5px 0;">Poniedziałek - Piątek: 8:00 - 18:00</p>
-                    <p style="margin: 0;">Sobota: 9:00 - 14:00</p>
+                    <div style="margin-top: 10px;">
+                        <div style="display: flex; gap: 15px; margin: 8px 0;">
+                            <span>Poniedziałek:</span>
+                            <span>16:00 - 20:00</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0;">
+                            <span>Wtorek:</span>
+                            <span>16:00 - 20:00</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0;">
+                            <span>Środa:</span>
+                            <span>16:00 - 20:00</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0;">
+                            <span>Czwartek:</span>
+                            <span>16:00 - 20:00</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0;">
+                            <span>Piątek:</span>
+                            <span>16:00 - 20:00</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0; color: #999;">
+                            <span>Sobota:</span>
+                            <span>Nieczynne</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin: 8px 0; color: #999;">
+                            <span>Niedziela:</span>
+                            <span>Nieczynne</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
@@ -91,6 +121,27 @@
                         <option value="inne" style="background:#000;">Inne</option>
                     </select>
                     <textarea name="message" placeholder="Wiadomość"></textarea>
+
+                    <!-- RODO Consent -->
+                    <div
+                        style="margin: 20px 0; padding: 15px; background: rgba(255, 193, 37, 0.05); border-left: 3px solid #FFC125; border-radius: 4px;">
+                        <label
+                            style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 0.85rem; line-height: 1.5;">
+                            <input type="checkbox" name="consent" required
+                                style="margin-top: 4px; width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; accent-color: #FFC125;">
+                            <span style="color: #ccc;">
+                                Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zapytania
+                                kontaktowego zgodnie z
+                                <a href="polityka-prywatnosci.html" style="color: #FFC125; text-decoration: underline;"
+                                    target="_blank">Polityką Prywatności</a>.
+                                Administratorem danych jest DOMY SZKIELETOWE - PREMIUM.
+                                <span style="display: block; margin-top: 8px; font-size: 0.8rem; color: #999;">
+                                    *Pole wymagane - bez zgody nie będziemy mogli odpowiedzieć na Twoje zapytanie.
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn" style="width: 100%; border:none; cursor:pointer;">Wyślij
                         Wiadomość</button>
                 </form>
@@ -98,10 +149,18 @@
         </div>
     </section>
 
-    <div
-        style="width: 100%; height: 400px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">
-        <!-- Map Placeholder -->
-        <p>[MIEJSCE NA MAPĘ GOOGLE]</p>
+    <div style="width: 100%; height: 500px; background: #1a1a1a; position: relative; overflow: hidden;">
+        <!-- Google Maps Embed -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.3844073843677!2d21.01223!3d52.2297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjAiTiAyMcKwMDAnNDQuMCJF!5e0!3m2!1spl!2spl!4v1234567890"
+            width="100%" height="100%" style="border:0; filter: grayscale(20%) brightness(0.9) contrast(1.1);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!-- Elegant overlay for premium effect -->
+        <div
+            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; 
+                    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.2) 100%);">
+        </div>
     </div>
 
     <footer>

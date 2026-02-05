@@ -14,10 +14,11 @@
 </head>
 
 <body>
+    <div id="splash-overlay"></div>
 
     <!-- Header -->
-    <header>
-        <div class="container nav-container">
+    <header class="splash-mask">
+        <div class="container nav-container splash-hidden">
 
             <nav>
                 <ul class="nav-links">
@@ -53,7 +54,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
+        <div class="container hero-content splash-hidden">
 
             <h1>PREMIUM <span style="display:block; color:#FFC125;">DOMY</span> SZKIELETOWE</h1>
             <p>Budujemy autentyczne domy skandynawskie od 25 lat, korzystając z doświadczenia zdobytego w Szwecji.
@@ -136,7 +137,7 @@
                         Zagospodarowania Przestrzennego, przez adaptację projektu do warunków działki, aż po
                         kompletowanie pełnej dokumentacji niezbędnej do uzyskania pozwolenia na budowę. Twój spokój jest
                         dla nas priorytetem już na starcie.</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <!-- Placeholder or specific image -->
@@ -155,7 +156,7 @@
                         termicznej (styropian XPS/EPS) eliminując mostki termiczne od gruntu. W płycie rozprowadzamy
                         rury kanalizacyjne oraz, na życzenie, instalację ogrzewania podłogowego. Całość zalewamy
                         wysokiej klasy betonem, zacierając go na gładko mechanicznie.</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <img src="images/Taras-domu.JPG" alt="Etap 2: Fundament">
@@ -173,7 +174,7 @@
                         szkodniki bez potrzeby chemicznej impregnacji. Precyzyjnie docinamy i montujemy ściany
                         zewnętrzne, ścianki działowe, konstrukcję stropu oraz więźbę dachową, dbając o każdy kąt i
                         łączenie ciesielskie.</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <img src="images/pełny-widok-domu.png" alt="Etap 3: Konstrukcja">
@@ -191,7 +192,7 @@
                         pakiety 3-szybowe o niskim współczynniku przenikania ciepła, montowane w warstwie ocieplenia
                         (ciepły montaż). Cały budynek owijamy wysokoparoprzepuszczalną membraną wiatroizolacyjną, która
                         chroni konstrukcję przed wilgocią z zewnątrz, jednocześnie pozwalając jej "oddychać".</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <img src="images/zdjecie-brokatowych-domkow.webp" alt="Etap 4: Stan Surowy">
@@ -209,7 +210,7 @@
                         instalacje: elektryczną (punkty świetlne, gniazda), wodno-kanalizacyjną oraz system centralnego
                         ogrzewania. Standardem w naszych domach jest przygotowanie pod wentylację mechaniczną z
                         odzyskiem ciepła (rekuperację), co gwarantuje świeże powietrze bez strat energii.</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <img src="images/zdjecie-domku-do-boku.png" alt="Etap 5: Izolacje">
@@ -227,7 +228,7 @@
                         lub wyższy) i przygotowujemy powierzchnie do malowania. Wykonujemy wylewki podłogowe (jeśli nie
                         było ich w płycie). Po tym etapie budynek jest gotowy do prac wykończeniowych "pod klucz" –
                         układania podłóg, montażu drzwi wewnętrznych i białego montażu.</p>
-                    <a href="#" class="process-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+
                 </div>
                 <div class="process-image-container">
                     <img src="images/pełny-widok-domu.png" alt="Etap 6: Wykończenie">
@@ -803,6 +804,39 @@
     </div>
 
     <script src="script.js"></script>
+
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal">
+        <div class="contact-modal-content">
+            <button id="close-modal" class="close-modal-btn">&times;</button>
+            <div class="modal-header">
+                <h3>Zrealizuj Marzenia o<br><span>Skandynawskim Domu</span></h3>
+            </div>
+            <p class="modal-text">
+                Twój wymarzony dom jest bliżej niż myślisz. Połączyliśmy szwedzką technologię z polską rzetelnością.
+                Skontaktuj się z nami już teraz i zacznijmy działać!
+            </p>
+            <div class="modal-actions">
+                <a href="tel:+48665234093" class="modal-btn primary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    Zadzwoń Teraz
+                </a>
+                <a href="mailto:kontakt@prestizowedomy.pl" class="modal-btn secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    Napisz Email
+                </a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
